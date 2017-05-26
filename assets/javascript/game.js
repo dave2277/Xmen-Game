@@ -3,58 +3,48 @@
 $( document ).ready(function() {
     console.log( "ready!" );
 
-//Move character into attack position
-$("#gambit").on("click", function() {
+//When you click an item with the character class
+$(".character").on("click", function() {
+
+//Change the text of arena to "Attacker"
+        $("#arena").html("Attacker")
+
+//Move the character icon to the attack position
         $(this).appendTo( $(".attacker") );
-        $("#storm, #wolverine, #cyclops").appendTo( $("#opponents") );
+
+//Create a variable for items with the character class that were not clicked
+        var enemy = $(".character").not(this)
+
+//Move unclicked items to the opponents div
+        $(enemy).appendTo( $("#opponents") );
+
+//Remove the character class from the unclicked items
+        $(enemy).removeClass("character");
+
+//Add the advesary class to the unclicked items
+        $(enemy).addClass("adversary");
+
+//Hide the choose your character text
         $("#choose").hide();
-      });
 
-$("#storm").on("click", function() {
-        $(this).appendTo( $(".attacker") );
-        $("#gambit, #wolverine, #cyclops").appendTo( $("#opponents") );
-        $("#choose").hide();
-      });
+//Turn off event handlers
+        if ($(enemy).hasClass("adversary")) {
+            $(enemy).off();
+        }
 
-$("#wolverine").on("click", function() {
-        $(this).appendTo( $(".attacker") );
-        $("#gambit, #storm, #cyclops").appendTo( $("#opponents") );
-        $("#choose").hide();
-      });
+//When you click one of the opponents
+        $(".adversary").on("click", function() {
 
-$("#cyclops").on("click", function() {
-        $(this).appendTo( $(".attacker") );
-        $("#gambit, #storm, #wolverine").appendTo( $("#opponents") );
-        $("#choose").hide();
-      });
-
-//Move character into defender position
-
-$(".opponents #gambit").on("click", function() {
+//Move the opponent to the defender section
         $(this).appendTo( $(".defender") );
-        $(".opponents #storm, .opponents #wolverine, .opponents #cyclops").hide();
+
+//Hide the rest of the images
+        $(".adversary").not(this).hide();
+
+//Hide Choose Your Opponent text
         $("#fight").hide();
       });
-
-$(".opponents #storm").on("click", function() {
-        $(this).appendTo( $(".defender") );
-        $(".opponents #gambit, .opponents #wolverine, .opponents #cyclops").hide();
-        $("#fight").hide();
       });
-
-$(".opponents #wolverine").on("click", function() {
-        $(this).appendTo( $(".defender") );
-        $(".opponents #gambit, .opponents #storm, .opponents #cyclops").hide();
-        $("#fight").hide();
-      });
-
-$(".opponents #cyclops").on("click", function() {
-        $(this).appendTo( $(".defender") );
-        $(".opponents #gambit, .opponents #storm, .opponents #wolverine").hide();
-        $("#fight").hide();
-      });
-
-
 
 
 });
