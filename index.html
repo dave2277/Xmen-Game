@@ -10,57 +10,55 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
 	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-	<sript src="assets/javascript/game.js"></script>
+	<script src="assets/javascript/game.js"></script>
 </head>
 
 <body>
 	<div class="container-fluid">
 		<div class="row">
 			<div class="col-md-12">
-				<h1>Chose your Character!</h1>
+				<h1 id="choose">Chose your Character!</h1>
 			</div><!-- End Head Column -->
 		</div><!-- End Row 1 -->
 		<div class="row">
-			<div class="col-md-3">
-				<img src="assets/images/Gambit.jpg" class="img-thumbnail" height="275" width="275" alt="gambit">
+			<div id="gambit" class="col-md-3">
+				<img src="assets/images/Gambit.jpg"  class="img-thumbnail" alt="gambit">
 			</div ><!-- End Column1 -->
-			<div class="col-md-3">
-				<img src="assets/images/Storm.jpg" class="img-thumbnail" height="275" width="275" alt="storm">
+			<div id="storm" class="col-md-3">
+				<img src="assets/images/Storm.jpeg" class="img-thumbnail" alt="storm">
 			</div><!-- End Column2 -->
-				<div class="col-md-3">
-					<img src="assets/images/Wolverine.jpg" class="img-thumbnail" height="275" width="275" alt="wolverine">
+				<div id="wolverine" class="col-md-3">
+					<img src="assets/images/Wolverine.jpg" class="img-thumbnail" alt="wolverine">
 				</div><!-- End Column3 -->
-				<div class="col-md-3">
-					<img src="assets/images/Nightcrawler.jpg" class="img-thumbnail" height="275" width="275" alt="nightcrawler">
+				<div id="cyclops" class="col-md-3">
+					<img src="assets/images/Cyclops.jpg" class="img-thumbnail" alt="cyclops">
 				</div><!-- End Column4 -->
 		</div><!-- End Row 2 -->
 		<div class="row">
 			<div class="col-md-12">
-				<h1>Choose Your Opponent!</h1>
+				<h1 id="fight">Choose Your Opponent!</h1>
+				<div id="opponents"></div>
 			</div><!-- End Column -->
 		</div><!-- End Row 3 -->
-		<div class="row"> 
-			<div class="col-md-4">
-				
-			</div ><!-- End Column1 -->
-			<div class="col-md-4">
-				
-			</div><!-- End Column2 -->
-			<div class="col-md-4">
-				
-			</div><!-- End Column3 -->
-		</div><!-- End Row 4 -->
 		<div class="row">
 			<div class="col-md-12">
 				<h1>Fighting Arena</h1>
-				<button id="attack">Attack</button>
+				<div class="attacker"></div>
 			</div><!-- End Column -->
 		</div><!-- End Row -->
 		<div class="row">
-			<div class="col-md-4">
+			<div class="col-md-12">
+				<button id="attack">Attack</button>
+			</div><!-- End Column -->
+		</div><!-- End Row -->
+		
+		<div class="row">
+			<div class="col-md-12">
 				<h1>Defender</h1>
+				<div class="defender"></div>
 			</div>
 		</div><!-- End row -->
 	</div><!-- End Container -->
 </body>
+
 </html>
