@@ -1,7 +1,10 @@
+//Create objects for characters
+
+
+
 
 // A $( document ).ready() block.
 $( document ).ready(function() {
-    console.log( "ready!" );
 
 //When you click an item with the character class
 $(".character").on("click", function() {
