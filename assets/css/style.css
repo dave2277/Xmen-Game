@@ -1,4 +1,36 @@
-body {
 
-	background-image: "assets/images/XMEN200.jpg";
+.btn {
+	width: 300px;
+	height: 200px;
+	background-size: 85%;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-color: white;
+	padding-top: 170px;
+}
+
+#gam {
+
+background-image: url("../images/Gambit.jpg");
+
+}
+
+
+#sto {
+
+	background-image: url("../images/Storm.jpeg");
+
+}
+
+#wolv {
+
+	background-image: url("../images/Wolverine.jpg");
+
+}
+
+
+#cyc {
+
+	background-image: url("../images/Cyclops.jpg");
+
 }
