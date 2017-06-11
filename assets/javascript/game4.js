@@ -16,7 +16,7 @@ var storm = {
 var wolverine = {
     name: "Wolverine",
     healthPoints: 220,
-    attackPower: 4,
+    attackPower: 5,
     counterPower: 17
 }
 
@@ -30,27 +30,23 @@ var cyclops = {
 var attacker; //For the attacker div
 var enemy;      //For moving opponents to the correct div on first click
 var defender;   //For the character div that gets moved to the defender location 
-var defenderName;
 var yourFighter; //For the id of the div when you choose your character
 var fighter; //For taking on the object properties of the xman you picked
-var firstDefender; //For the id of the div when you choose your first defender
 var rival; //For taking on the object properties of the defender
-
 var counter; //For counting the number of times the attack button is clicked.
 var damage; //Calculates the attack power of the fighter for each attack
-
-var roundOne = true; //For changing the fight function calculation after the first round
-var roundTwo = false;
-var roundThree = false;
+var roundOne = true; //For changing fight behaviors in the first round
+var roundTwo = false; //For chaning fight behaviors in the second round
+var roundThree = false;// For changing fight behaviors in the third round
 var roundTwoDefender; //For the id of the div when you choose your second defender
-var newCounter = 0;
-var newDamage;
-
-var playerDamage;
-var rival2;
+var newDamage; //For presenting damage results
+var playerDamage; //For presenting damage received results
 
 
 $(document).ready(function() {
+
+//Hide the choose your opponent text
+    $("#fight").hide();
 
 //User chooses character by clicking
     $(".character").on("click", function() {
@@ -63,6 +59,9 @@ $(document).ready(function() {
         
 //Declare any one who is not your attacker an enemy
         enemy = $(".character").not(this);
+
+//Show the choose your opponent text
+        $("#fight").show();
 
 //Turn off the event listener so only one attacker can be selected
         $(".character").off();
@@ -171,6 +170,8 @@ function attackButton() {
         counter = $('#attack').val();
         counter++;
         $('#attack').val(counter);
+
+//Call the fight function
         fight();
         });
 
@@ -221,13 +222,14 @@ function fight() {
             playerDamage = returnFire();
         }
 
+//Call the headsUp function
         headsUp();
-
     };
 
 
 function headsUp() {
 
+//Update the status of damage and health points for characters
     var status = "<p>" + fighter.name + " attacks for " + damage + " damage." +
     "<p>" + rival.name + " has " + rival.healthPoints + " HP. </p>" +
     "<p>" + rival.name + " counter attacks for " + rival.counterPower + " damage." +
@@ -235,34 +237,35 @@ function headsUp() {
 
     $("#display").html(status);
 
+   
+//Initiate Game Over Text
     if (playerDamage <= 0) {
     var over = "<h1> GAME OVER! </h1>" + "<p>Your character has been defeated.</p>" +
     "<p>Press reset to play again. </p>";
     $("#display").html(over);
     }  
 
+//Call the win function if character is defeated
     if (rival.healthPoints <= 0) {
-
     win();
         }
-
     };
 
 //Handle status updates
-
-
 function win() {
 
+//Turn off the attack button until another defender is selected
     $("#attack").off();
 
+//Slowly fade out the defeated character 
     $(defender).fadeOut( "slow" );
    
-//Replace status with win text
-
+//Clear and replace status with win text
     $("#display").empty();
 
     $("#display").html("<p>" + rival.name + " has been defeated! </p>" + "<p> Choose your next opponent. </p>");
 
+//Send to the appropriate round function depending on which round we're in
         if (roundOne) {
 
         rndTwo();
@@ -273,22 +276,18 @@ function win() {
 
         } else if (roundThree) {
 
+//Display text indicating all the rivals have been defeated
         $("#display").html("<p>" + fighter.name + " has defeated all enemies!  Congratulations! </p>");
-
         }
-
     };
-
 
 function rndTwo() {
 
 //Change our booleans
-
     roundOne = false;
-
     roundTwo = true;
 
-//Click next defender
+//Listen for next defender click
     $(".newOpponent").on("click", function() {
 
 //Re-assign defender value
@@ -301,12 +300,12 @@ function rndTwo() {
 //Don't allow multiple defenders
         $(".newOpponent").off();
 
+//Empty the display and choose our next opponent
         $("#display").empty();
 
         chooseDefender();
 
         });  
-
     };
 
 function rndThree() {
@@ -314,9 +313,9 @@ function rndThree() {
 //Change our booleans
 
     roundTwo = false;
-
     roundThree = true;
 
+//Listen for our last opponent selction
     $(".lastOpponent").on("click", function() {
         defender = $(this);
 
@@ -327,9 +326,6 @@ function rndThree() {
         chooseDefender();
 
         });
-
-
-}
-
+    };
 
 });

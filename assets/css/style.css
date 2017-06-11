@@ -1,4 +1,25 @@
 
+body {
+
+	background-image: url("../images/background.jpg");
+	background-repeat: no-repeat;
+	background-position: bottom;
+	color: white;
+}
+
+
+p {
+	
+	font-size: 28px;
+	margin-left: 15px;
+
+}
+
+#choose, #fight, #arena, #defender {
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
 .btn {
 	width: 300px;
 	height: 200px;
@@ -7,6 +28,8 @@
 	background-position: center;
 	background-color: white;
 	padding-top: 170px;
+	margin-top: 15px;
+	margin-bottom: 15px;
 }
 
 #gam {
@@ -33,4 +56,9 @@ background-image: url("../images/Gambit.jpg");
 
 	background-image: url("../images/Cyclops.jpg");
 
+}
+
+#attack {
+
+	margin-left: 15px;
 }
