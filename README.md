@@ -10,7 +10,7 @@ The game mimics a rudimentary RPG in which the user can:
 
 Your character will multiply attack power with each successive attack.
 Your opponent has a static counter attack power.
-There are only certain paths to defeating all the opponents, so the user must be strategic in their selections.
+There are only certain paths to defeating all the opponents, so the user must be strategic in his or her selections.
 
 Access to the application is via the git hub page:
 https://dogray7722.github.io/Xmen-Game/
