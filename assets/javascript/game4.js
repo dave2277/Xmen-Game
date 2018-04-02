@@ -57,7 +57,7 @@ $(document).ready(function() {
 //Assign the variable yourFighter to the id of the div for object assignment        
         yourFighter = (this.id);
         
-//Declare any one who is not your attacker an enemy
+//Declare anyone who is not your attacker an enemy
         enemy = $(".character").not(this);
 
 //Show the choose your opponent text
@@ -241,7 +241,7 @@ function headsUp() {
 //Initiate Game Over Text
     if (playerDamage <= 0) {
     var over = "<h1> GAME OVER! </h1>" + "<p>Your character has been defeated.</p>" +
-    "<p>Press reset to play again. </p>";
+    "<p>Refresh the page to play again. </p>";
     $("#display").html(over);
     }  
 
